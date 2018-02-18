@@ -1,4 +1,8 @@
 pipeline {
+  agent {
+    label 'fedora'
+  }
+  
   stages {
     stage ('Build') {
       steps {
