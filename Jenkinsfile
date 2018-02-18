@@ -3,21 +3,7 @@ pipeline {
     label 'fedora'
   }
 
-  options {
-    timestamps()
-    skipDefaultCheckout()      // Don't checkout automatically
-  }
-
   stages {
-    stage('Preparation') {
-      steps {
-        cleanWs()
-        dir('ringba-v2-portal') {
-          checkout scm
-        }
-      }
-    }
-
     stage ('Build') {
       steps {
         sh 'npm install'
