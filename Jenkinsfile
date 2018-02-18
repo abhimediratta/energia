@@ -12,13 +12,12 @@ pipeline {
     stage('Preparation') {
       steps {
         cleanWs()
-        notifyBuild("STARTED")
         dir('ringba-v2-portal') {
           checkout scm
         }
       }
     }
-    
+
     stage ('Build') {
       steps {
         sh 'npm install'
