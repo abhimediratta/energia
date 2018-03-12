@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Flex, Box } from 'grid-styled'
+import { Flex, Box } from 'grid-styled';
 import styled from 'styled-components';
 
 import NavItem from './NavItem';
@@ -13,7 +13,7 @@ export default class Header extends Component {
   render () {
     return (
       <HeaderBar py={20} justify='center'>
-        <Flex width={1/2}>
+        <Flex width={3/4}>
           Header
 
           <Box ml={40}>

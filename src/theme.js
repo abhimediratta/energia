@@ -2,6 +2,10 @@ const colors = {
   header: {
     background: '#262626',
     color: '#fff'
+  },
+  content: {
+    background: '#262626',
+    color: '#fff'
   }
 };
 
