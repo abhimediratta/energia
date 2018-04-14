@@ -12,8 +12,8 @@ const HeaderBar = styled(Flex)`
 export default class Header extends Component {
   render () {
     return (
-      <HeaderBar py={20} justify='center'>
-        <Flex width={3/4}>
+      <HeaderBar py={20} pl={30} justify='center'>
+        <Flex width={[1,1,1,3/4]}>
           Header
 
           <Box ml={40}>
