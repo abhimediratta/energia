@@ -3,6 +3,7 @@ import { Flex } from 'grid-styled';
 import styled from 'styled-components';
 
 import CategoryList from './CategoryList';
+import EventsSidebar from './EventsSidebar';
 
 const ContentBox = styled(Flex)`
   background: ${props => props.theme.colors.content.background};
@@ -16,6 +17,7 @@ export default class Content extends Component {
       <ContentBox justify='center'>
         <Flex width={[1, 1, 1, 3/4]}>
           <CategoryList></CategoryList>
+          <EventsSidebar></EventsSidebar>
         </Flex>
       </ContentBox>
     )
