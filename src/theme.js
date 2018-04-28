@@ -1,4 +1,4 @@
-import { rgba } from 'polished';
+import { rgba, darken, lighten } from 'polished';
 
 const colors = {
   header: {
@@ -20,6 +20,33 @@ const colors = {
   eventsSidebar: {
     background: '#000',
     color: '#fff'
+  },
+  sector: {
+    titleBar: {
+      background: '#fff',
+      color: '#000'
+    },
+    subTitle: {
+      background: '#000',
+      color: '#fff'
+    },
+  },
+  eventsList: {
+    event: {
+      odd: {
+        background: '#fff',
+        color: '#000',
+        hoverBg: darken(0.2, '#fff')
+      },
+      even: {
+        background: '#000',
+        color: '#fff',
+        hoverBg: lighten(0.2, '#000')
+      }
+    }
+  },
+  insights: {
+    background: darken(0.1, '#fff')
   }
 };
 
