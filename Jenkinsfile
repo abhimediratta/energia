@@ -11,7 +11,7 @@ pipeline {
 
         script{
           if(env.CHANGE_ID) {
-            sh 'echo PR raised'
+            sh 'echo PR raised yes'
           }
         }
         
