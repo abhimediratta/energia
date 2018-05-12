@@ -3,16 +3,15 @@ pipeline {
     label 'fedora'
   }
 
-  options {
-    timestamps()
-    skipDefaultCheckout()      // Don't checkout automatically
-  }
-
   stages {
     stage ('Build') {
       steps {
         sh 'npm install'
         sh 'npm run build'
+
+        if(env.CHANGE_ID) {
+          sh 'echo PR raised'
+        }
       }
     }
 

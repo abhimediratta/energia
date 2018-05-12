@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Flex, Box } from 'grid-styled'
+import { Flex } from 'grid-styled';
 import styled from 'styled-components';
 
 import NavItem from './NavItem';
+import NavDropdown from './NavDropdown';
 
 const HeaderBar = styled(Flex)`
   background: ${props => props.theme.colors.header.background};
@@ -12,15 +13,16 @@ const HeaderBar = styled(Flex)`
 export default class Header extends Component {
   render () {
     return (
-      <HeaderBar py={20} justify='center'>
-        <Flex width={1/2}>
+      <HeaderBar pl={30} justify='center'>
+        <Flex width={[1,1,1,3/4]} alignItems='center'>
           Header
 
-          <Box ml={40}>
+          <Flex alignItems='center' ml={40}>
+            <NavDropdown text={'Sectors'} />
             <NavItem text={'Events Calendar'}></NavItem>
             <NavItem text={'About Us'}></NavItem>
             <NavItem text={'Contact Us'}></NavItem>
-          </Box>
+          </Flex>
         </Flex>
       </HeaderBar>
     )
