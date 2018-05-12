@@ -9,9 +9,12 @@ pipeline {
         sh 'npm install'
         sh 'npm run build'
 
-        if(env.CHANGE_ID) {
-          sh 'echo PR raised'
+        script{
+          if(env.CHANGE_ID) {
+            sh 'echo PR raised'
+          }
         }
+        
       }
     }
 
