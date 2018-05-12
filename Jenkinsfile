@@ -3,11 +3,6 @@ pipeline {
     label 'fedora'
   }
 
-  options {
-    timestamps()
-    skipDefaultCheckout()      // Don't checkout automatically
-  }
-
   stages {
     stage ('Build') {
       steps {
