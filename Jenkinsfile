@@ -14,7 +14,7 @@ pipeline {
             sh 'echo PR raised yes'
           }
         }
-        
+
       }
     }
 
@@ -23,7 +23,7 @@ pipeline {
         expression { env.BRANCH_NAME == 'master' }
       }
       steps {
-        sh 'aws s3 sync build s3://energia.in --acl public-read --delete --cache-control "max-age=31104000" --metadata-directive REPLACE'
+        sh 'aws s3 sync build s3://energia.in --region ap-south-1 --acl public-read --delete --cache-control "max-age=31104000" --metadata-directive REPLACE'
       }
     }
 
