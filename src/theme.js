@@ -47,6 +47,11 @@ const colors = {
   },
   insights: {
     background: darken(0.1, '#fff')
+  },
+  eventOverview: {
+    headerBox: {
+      background: '#666'
+    }
   }
 };
 

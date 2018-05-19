@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Flex, Box } from 'grid-styled';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import Button from 'Button';
 
@@ -42,7 +43,11 @@ export default class Event extends Component {
           <EventName>Test event</EventName>
           <Box mt={20}>20th May - 21st May, 2018</Box>
           <Box mb={20}>Lalit Hotel, New Delhi</Box>
-          <Button size='large'>Hola</Button>
+          <Link to="/event/cerc">
+            <Button size='large'>
+              Hola
+            </Button>
+          </Link>
         </Flex>
       </EventBox>
     )

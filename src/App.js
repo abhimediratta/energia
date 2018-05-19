@@ -11,6 +11,7 @@ import './App.css';
 import Header from './Header';
 import Home from './Home';
 import Sector from './Sector';
+import EventOverview from './EventOverview';
 
 const ContentBox = styled(Flex)`
   background: ${props => props.theme.colors.content.background};
@@ -29,6 +30,7 @@ export class App extends Component {
               <Flex width={[1, 1, 1, 3/4]}>
                 <Route exact path="/" component={Home} />
                 <Route path={`/sector/:sectorName`} component={Sector} />
+                <Route path={`/event/:eventSlug`} component={EventOverview} />
               </Flex>
             </ContentBox>
           </Box>

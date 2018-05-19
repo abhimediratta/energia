@@ -5,16 +5,7 @@ import styled from 'styled-components';
 import InlineFlex from 'InlineFlex';
 import EventsList from './EventsList';
 import EventInsights from './EventsInsights';
-
-const TitleBar = styled.h2`
-  height: 50px;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  margin: 0;
-  background: ${props => props.theme.colors.sector.titleBar.background};
-  color: ${props => props.theme.colors.sector.titleBar.color};
-`;
+import TitleBar from 'TitleBar';
 
 const TitleImage = styled(Box)`
   background: grey;
@@ -34,8 +25,7 @@ export default class Sector extends Component {
   render () {
     return (
       <Box width={1}>
-        <TitleBar>
-          CERC
+        <TitleBar titleText={'CERC'}>
         </TitleBar>
         <TitleImage width={1}>
         </TitleImage>
