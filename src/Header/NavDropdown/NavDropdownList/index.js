@@ -17,9 +17,9 @@ export default class NavDropdownList extends Component {
   render () {
     return (
       <Flex flexDirection='column'>
-        <ListItem to="sector/test">Test</ListItem>
-        <ListItem to="sector/test">Test</ListItem>
-        <ListItem to="sector/test">Test</ListItem>
+        <ListItem to="/sector/test">Test</ListItem>
+        <ListItem to="/sector/test">Test</ListItem>
+        <ListItem to="/sector/test">Test</ListItem>
       </Flex>
     );
   }

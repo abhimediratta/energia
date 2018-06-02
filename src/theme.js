@@ -55,8 +55,29 @@ const colors = {
   }
 };
 
+const tabColors = {
+  background: '#000',
+  color: '#fff',
+  borderColor: 'grey'
+};
+
+const eventSectionColors = {
+  background: '#fff',
+  color: '#000',
+  container: {
+    background: 'grey',
+    color: '#fff'
+  },
+  right: {
+    background: '#000',
+    color:'#fff'
+  }
+};
+
 const theme = {
-  colors
+  colors,
+  tabColors,
+  eventSectionColors
 };
 
 export default theme;
