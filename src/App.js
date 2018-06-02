@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
-import { Flex, Box } from 'grid-styled';
+import { Flex } from 'grid-styled';
 import styled from 'styled-components';
 import { ThemeProvider } from 'styled-components';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import theme from './theme';
 
 import './App.css';
 
 import Header from './Header';
+import Footer from './Footer';
 import Home from './Home';
 import Sector from './Sector';
 import EventOverview from './EventOverview';
+
+const RootContainer = styled(Flex)`
+  flex-direction: column;
+  min-height: 100vh;
+`;
 
 const ContentBox = styled(Flex)`
   background: ${props => props.theme.colors.content.background};
@@ -24,16 +30,19 @@ export class App extends Component {
     return (
       <Router>
         <ThemeProvider theme={theme}>
-          <Box>
+          <RootContainer flexDirection="column">
             <Header></Header>
-            <ContentBox justify='center'>
+            <ContentBox flex='1' justify='center'>
               <Flex width={[1, 1, 1, 3/4]}>
-                <Route exact path="/" component={Home} />
-                <Route path={`/sector/:sectorName`} component={Sector} />
-                <Route path={`/event/:eventSlug`} component={EventOverview} />
+                <Switch>
+                  <Route exact path="/" component={Home} />
+                  <Route path={`/sector/:sectorName`} component={Sector} />
+                  <Route path={`/event/:eventSlug`} component={EventOverview} />
+                </Switch>
               </Flex>
             </ContentBox>
-          </Box>
+            <Footer></Footer>
+          </RootContainer>
         </ThemeProvider>
       </Router>
     );

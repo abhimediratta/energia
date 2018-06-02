@@ -43,7 +43,7 @@ export default class Event extends Component {
           <EventName>Test event</EventName>
           <Box mt={20}>20th May - 21st May, 2018</Box>
           <Box mb={20}>Lalit Hotel, New Delhi</Box>
-          <Link to="/event/cerc">
+          <Link to="/event/cerc/overview">
             <Button size='large'>
               Hola
             </Button>
