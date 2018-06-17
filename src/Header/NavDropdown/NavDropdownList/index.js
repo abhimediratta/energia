@@ -4,7 +4,13 @@ import { Flex } from 'grid-styled';
 import { Link } from 'react-router-dom';
 
 const ListItem = styled(Link)`
+  text-decoration: none;
   padding: 10px 0;
+  color: #eee;
+  &:hover {
+    color: #fff;
+    font-weight: bold;
+  }
   &:first-child {
     padding-top: 0;
   }
@@ -14,12 +20,18 @@ const ListItem = styled(Link)`
 `;
 
 export default class NavDropdownList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      list: []
+    };
+  }
+
   render () {
+    const { list } = this.props;
     return (
       <Flex flexDirection='column'>
-        <ListItem to="/sector/test">Test</ListItem>
-        <ListItem to="/sector/test">Test</ListItem>
-        <ListItem to="/sector/test">Test</ListItem>
+        { list.map(item => <ListItem to={'/sector/' + item.id + '-' + item.slug}>{item.name}</ListItem>) }
       </Flex>
     );
   }

@@ -3,7 +3,7 @@ import { Flex } from 'grid-styled';
 import styled from 'styled-components';
 
 import NavItem from './NavItem';
-import NavDropdown from './NavDropdown';
+import SectorsDropdown from './SectorsDropdown';
 
 const HeaderBar = styled(Flex)`
   background: ${props => props.theme.colors.header.background};
@@ -18,7 +18,7 @@ export default class Header extends Component {
           Header
 
           <Flex alignItems='center' ml={40}>
-            <NavDropdown text={'Sectors'} />
+            <SectorsDropdown></SectorsDropdown>
             <NavItem text={'Events Calendar'}></NavItem>
             <NavItem text={'About Us'}></NavItem>
             <NavItem text={'Contact Us'}></NavItem>
