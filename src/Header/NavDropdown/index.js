@@ -48,6 +48,7 @@ const TextSpan = styled.span`
 
 export default class NavDropdown extends Component {
   render () {
+    const { list } = this.props;
     return (
       <Dropdown>
         <NavText alignItems='center'>
@@ -56,7 +57,7 @@ export default class NavDropdown extends Component {
           <FontAwesomeIcon icon="angle-down"/>
         </NavText>
         <NavPanel>
-          <NavDropdownList>
+          <NavDropdownList list={list}>
 
           </NavDropdownList>
         </NavPanel>
