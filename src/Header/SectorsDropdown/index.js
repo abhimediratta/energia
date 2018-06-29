@@ -3,7 +3,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 
 import NavDropdown from '../NavDropdown';
-import { fetchCategoriesIfNeeded } from '../../Category/duck/actions';
+import { fetchCategoriesIfNeeded } from '../../Store/Category/duck/actions';
 
 
 class SectorsDropdown extends Component {

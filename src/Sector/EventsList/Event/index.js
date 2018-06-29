@@ -36,13 +36,14 @@ const EventName = styled.span`
 
 export default class Event extends Component {
   render () {
+    var { event } = this.props;
     return (
       <EventBox flex='1 1 auto' width={1}>
         <ImageBox flex='0 0 25%'></ImageBox>
         <Flex alignItems='flex-start' p={10} flexDirection='column'>
-          <EventName>Test event</EventName>
-          <Box mt={20}>20th May - 21st May, 2018</Box>
-          <Box mb={20}>Lalit Hotel, New Delhi</Box>
+          <EventName>{event.name}</EventName>
+          <Box mt={20}>{event.eventDate}</Box>
+          <Box mb={20}>{event.venue}</Box>
           <Link to="/event/cerc/overview">
             <Button size='large'>
               Hola
