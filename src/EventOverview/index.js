@@ -8,6 +8,8 @@ import EventHeaderBox from './EventHeaderBox';
 import EventTabs from './EventTabs';
 import Overview from './Overview';
 import { fetchEventData } from '../Store/Event/duck/actions';
+import Agenda from './Agenda';
+import Speakers from './Speakers';
 
 
 class EventOverview extends Component {
@@ -24,7 +26,9 @@ class EventOverview extends Component {
         <EventHeaderBox eventData={eventData}></EventHeaderBox>
         <EventTabs eventSlug={eventData.slug}></EventTabs>
         <Box>
-          <Route path={`${match.url}/overview`} component={Overview}/>
+          <Route exact path={`${match.url}/overview`} render={() => <Overview eventData={eventData} />} />
+          <Route exact path={`${match.url}/agenda`} render={() => <Agenda eventData={eventData} />} />
+          <Route exact path={`${match.url}/speakers`} render={() => <Speakers eventData={eventData} />} />
         </Box>
       </Box>
     )
