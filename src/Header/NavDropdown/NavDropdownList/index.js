@@ -31,7 +31,7 @@ export default class NavDropdownList extends Component {
     const { list } = this.props;
     return (
       <Flex flexDirection='column'>
-        { list.map(item => <ListItem to={'/sector/' + item.id + '-' + item.slug}>{item.name}</ListItem>) }
+        { list.map((item, index) => <ListItem key={index} to={'/sector/' + item.id}>{item.name}</ListItem>) }
       </Flex>
     );
   }
