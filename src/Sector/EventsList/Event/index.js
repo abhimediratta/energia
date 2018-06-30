@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Flex, Box } from 'grid-styled';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { format } from 'date-fns';
 
 import Button from 'Button';
 
@@ -42,7 +43,7 @@ export default class Event extends Component {
         <ImageBox flex='0 0 25%'></ImageBox>
         <Flex alignItems='flex-start' p={10} flexDirection='column'>
           <EventName>{event.name}</EventName>
-          <Box mt={20}>{event.eventDate}</Box>
+          <Box mt={20}>{format(event.eventDate, 'D MMM, YYYY')}</Box>
           <Box mb={20}>{event.venue}</Box>
           <Link to="/event/cerc/overview">
             <Button size='large'>
