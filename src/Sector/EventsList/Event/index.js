@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Flex, Box } from 'grid-styled';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { format } from 'date-fns';
 
 import Button from 'Button';
+import { formatDateRange } from 'Utilities/DateUtility';
 
 const EventBox = styled(Flex)`
   &:nth-child(even) {
@@ -43,9 +43,9 @@ export default class Event extends Component {
         <ImageBox flex='0 0 25%'></ImageBox>
         <Flex alignItems='flex-start' p={10} flexDirection='column'>
           <EventName>{event.name}</EventName>
-          <Box mt={20}>{format(event.eventDate, 'D MMM, YYYY')}</Box>
+          <Box mt={20}>{formatDateRange(event.startDate, event.endDate)}</Box>
           <Box mb={20}>{event.venue}</Box>
-          <Link to="/event/cerc/overview">
+          <Link to={`/event/${event.slug}/overview`}>
             <Button size='large'>
               Hola
             </Button>
@@ -54,4 +54,6 @@ export default class Event extends Component {
       </EventBox>
     )
   }
+
+  
 }

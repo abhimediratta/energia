@@ -1,9 +1,15 @@
 import React, { PureComponent } from 'react';
 import { Flex } from 'grid-styled';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
-const Tab = styled(Link)`
+
+const activeClassName = 'active';
+
+const Tab = styled(NavLink).attrs({
+  activeClassName
+})`
   background: ${props => props.theme.tabColors.background};
   color: ${props => props.theme.tabColors.color};
   padding: 7px 10px;
@@ -19,16 +25,23 @@ const Tab = styled(Link)`
   &:last-child {
     border: 0;
   }
+
+  &.${activeClassName} {
+    background-color: red;
+  }
 `;
 
-export default class EventTabs extends PureComponent {
+class EventTabs extends PureComponent {
   render () {
+    let { eventSlug } = this.props;
     return (
       <Flex>
-        <Tab to="overview">Overview</Tab>
-        <Tab to="agenda">Agenda</Tab>
-        <Tab to="speakers">Speakers</Tab>
+        <Tab to={`/event/${eventSlug}/overview`}>Overview</Tab>
+        <Tab to={`/event/${eventSlug}/agenda`}>Agenda</Tab>
+        <Tab to={`/event/${eventSlug}/speakers`}>Speakers</Tab>
       </Flex>
     )
   }
 }
+
+export default withRouter(EventTabs);

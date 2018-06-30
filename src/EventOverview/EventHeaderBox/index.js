@@ -22,16 +22,17 @@ const SubInfo = styled.div`
 
 export default class EventHeaderBox extends Component {
   render () {
+    let { eventData } = this.props;
     return (
       <ImageBox flexDirection="column">
         <EventTitle>
-          7th Annual CERC Forum
+          { eventData.name }
         </EventTitle>
         <SubInfo>
-          24 - 25 May, 2018
+          { eventData.formattedEventDate }
         </SubInfo>
         <SubInfo>
-          Leela, New Delhi
+        { eventData.venue }
         </SubInfo>
 
         <Flex mt='auto'>
