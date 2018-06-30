@@ -23,7 +23,7 @@ const getPastEvents = (events) => {
     var today = new Date();
     today.setHours(0,0,0,0);
     return events.filter(event => {
-        return Date.parse(event.eventDate) < today;
+        return Date.parse(event.startDate) < today;
     });
 };
 
