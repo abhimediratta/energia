@@ -3,12 +3,16 @@ import { handleActions } from 'redux-actions';
 import {
     fetchEventsStarted,
     fetchEventsSuccess,
-    fetchEventsError
+    fetchEventsError,
+    fetchEventDataStarted,
+    fetchEventDataSuccess,
+    fetchEventDataError
 } from './actions';
 
 const defaultState = {
     isFetching: false,
-    events: [],
+    all: [],
+    eventData: {},
     error: ''
 };
 
@@ -25,10 +29,32 @@ const EventReducer = handleActions(
             return {
                 ...state,
                 isFetching: false,
-                events: events
+                all: events
             };
         },
         [fetchEventsError]: (state, { payload: { error } }) => {
+            return {
+                ...state,
+                isFetching: true,
+                error: error
+            }
+        },
+
+        [fetchEventDataStarted]: (state) => {
+            return {
+                ...state,
+                isFetching: true,
+                error: ''
+            }
+        },
+        [fetchEventDataSuccess]: (state, { payload: { eventData } }) => {
+            return {
+                ...state,
+                isFetching: false,
+                eventData: eventData
+            };
+        },
+        [fetchEventDataError]: (state, { payload: { error } }) => {
             return {
                 ...state,
                 isFetching: true,
