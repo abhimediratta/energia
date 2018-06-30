@@ -42,7 +42,7 @@ export class App extends Component {
                 <Flex width={[1, 1, 1, 3/4]}>
                   <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route path={`/sector/:sectorName`} component={Sector} />
+                    <Route path={`/sector/:id`} component={Sector} />
                     <Route path={`/event/:eventSlug`} component={EventOverview} />
                   </Switch>
                 </Flex>

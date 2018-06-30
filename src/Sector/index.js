@@ -3,9 +3,10 @@ import { Box } from 'grid-styled';
 import styled from 'styled-components';
 
 import InlineFlex from 'InlineFlex';
-import EventsList from './EventsList';
 import EventInsights from './EventsInsights';
 import TitleBar from 'TitleBar';
+import PastEvents from './PastEvents';
+import UpcomingEvents from './UpcomingEvents';
 
 const TitleImage = styled(Box)`
   background: grey;
@@ -22,6 +23,11 @@ const SubTitle = styled.h3`
 `;
 
 export default class Sector extends Component {
+  constructor(props) {
+    super(props);
+    this.sectorId = props.match.params.id;
+  }
+
   render () {
     return (
       <Box width={1}>
@@ -32,12 +38,10 @@ export default class Sector extends Component {
 
         <InlineFlex width={[1,1,1,3/4]} flexDirection='column'>
           <SubTitle>Upcoming Events</SubTitle>
-
-          <EventsList></EventsList>
+          <UpcomingEvents sectorId={this.sectorId}></UpcomingEvents>
 
           <SubTitle>Past Events</SubTitle>
-
-          <EventsList></EventsList>
+          <PastEvents sectorId={this.sectorId}></PastEvents>
         </InlineFlex>
         <InlineFlex width={[1,1,1,1/4]} flexDirection='column'>
           <SubTitle>Event Insights</SubTitle>
