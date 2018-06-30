@@ -29,7 +29,7 @@ const getPastEvents = (events) => {
 
 const mapStateToProps = state => {
     return {
-        pastEvents: getPastEvents(state.event.events)
+        pastEvents: getPastEvents(state.event.all)
     }
 };
 

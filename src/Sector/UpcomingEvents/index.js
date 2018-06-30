@@ -29,7 +29,7 @@ const getUpcomingEvents = (events) => {
 
 const mapStateToProps = state => {
     return {
-        upcomingEvents: getUpcomingEvents(state.event.events)
+        upcomingEvents: getUpcomingEvents(state.event.all)
     }
 };
 
