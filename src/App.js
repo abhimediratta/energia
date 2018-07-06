@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from 'react-redux';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 
 import theme from './theme';
 
@@ -16,6 +18,8 @@ import Home from './Home';
 import Sector from './Sector';
 import EventOverview from './EventOverview';
 
+
+library.add(fas);
 
 const RootContainer = styled(Flex)`
   flex-direction: column;
@@ -44,6 +48,7 @@ export class App extends Component {
                     <Route exact path="/" component={Home} />
                     <Route path={`/sector/:id`} component={Sector} />
                     <Route path={`/event/:eventSlug`} component={EventOverview} />
+                    <Route component={Home} />
                   </Switch>
                 </Flex>
               </ContentBox>

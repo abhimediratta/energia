@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Flex } from 'grid-styled';
 import DocumentTitle from 'react-document-title';
 
-import CategoryList from './CategoryList';
 import EventsSidebar from './EventsSidebar';
+import CategoryItems from './CategoryItems';
 
 
 export default class Home extends Component {
@@ -11,7 +11,7 @@ export default class Home extends Component {
     return (
       <DocumentTitle title='Energia'>
         <Flex pt={20}>
-          <CategoryList></CategoryList>
+          <CategoryItems></CategoryItems>
           <EventsSidebar></EventsSidebar>
         </Flex>
       </DocumentTitle>

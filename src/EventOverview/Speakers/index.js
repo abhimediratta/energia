@@ -21,7 +21,6 @@ export default class Speakers extends Component {
         <Box width={[1,1,1,3/4]}>
           <EventSectionTitle>Speakers</EventSectionTitle>
           <EventSectionContainer>
-            {/* { eventData.speakers &&  } */}
             <SpeakersBox>
               { eventData.speakers && eventData.speakers.map(speaker => <SpeakerData speaker={speaker} />) }
             </SpeakersBox>

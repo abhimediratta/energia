@@ -4,13 +4,7 @@ import styled from 'styled-components';
 
 import NavDropdownList from './NavDropdownList';
 
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import fontawesome from '@fortawesome/fontawesome';
-import faColumns from '@fortawesome/fontawesome-free-solid/faColumns';
-import faAngleDown from '@fortawesome/fontawesome-free-solid/faAngleDown';
-
-fontawesome.library.add(faColumns);
-fontawesome.library.add(faAngleDown);
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const NavPanel = styled(Flex)`
