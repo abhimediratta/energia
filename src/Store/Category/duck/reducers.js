@@ -3,12 +3,16 @@ import { handleActions } from 'redux-actions';
 import {
     fetchCategoriesStarted,
     fetchCategoriesSuccess,
-    fetchCategoriesError
+    fetchCategoriesError,
+    fetchCategoryStarted,
+    fetchCategorySuccess,
+    fetchCategoryError
 } from './actions';
 
 const defaultState = {
     isFetching: false,
     categories: [],
+    category: {},
     error: ''
 };
 
@@ -29,6 +33,28 @@ const CategoryReducer = handleActions(
             };
         },
         [fetchCategoriesError]: (state, { payload: { error } }) => {
+            return {
+                ...state,
+                isFetching: true,
+                error: error
+            }
+        },
+
+        [fetchCategoryStarted]: (state) => {
+            return {
+                ...state,
+                isFetching: true,
+                error: ''
+            }
+        },
+        [fetchCategorySuccess]: (state, { payload: { category } }) => {
+            return {
+                ...state,
+                isFetching: false,
+                category
+            };
+        },
+        [fetchCategoryError]: (state, { payload: { error } }) => {
             return {
                 ...state,
                 isFetching: true,

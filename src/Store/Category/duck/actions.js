@@ -8,6 +8,10 @@ export const fetchCategoriesStarted = createAction('FETCH_CATEGORIES_STARTED');
 export const fetchCategoriesSuccess = createAction('FETCH_CATEGORIES_SUCCESS', categories => ({ categories }));
 export const fetchCategoriesError = createAction('FETCH_CATEGORIES_ERROR', error => ({ error }));
 
+export const fetchCategoryStarted = createAction('FETCH_CATEGORY_STARTED');
+export const fetchCategorySuccess = createAction('FETCH_CATEGORY_SUCCESS', category => ({ category }));
+export const fetchCategoryError = createAction('FETCH_CATEGORY_ERROR', error => ({ error }));
+
 function fetchCategories() {
     return dispatch => {
         dispatch(fetchCategoriesStarted);
@@ -34,3 +38,12 @@ export function fetchCategoriesIfNeeded() {
     }
 }
 
+export function fetchCategory(sectorId) {
+    return dispatch => {
+        dispatch(fetchCategoryStarted);
+        return axios.get(API_URL + 'category/' + sectorId)
+            .then(category => category)
+            .then(response => dispatch(fetchCategorySuccess(response.data)))
+            .catch(error => error);
+    }
+}
