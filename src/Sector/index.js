@@ -8,7 +8,7 @@ import EventInsights from './EventsInsights';
 import TitleBar from 'TitleBar';
 import PastEvents from './PastEvents';
 import UpcomingEvents from './UpcomingEvents';
-import { fetchCategory } from '../Store/Category/duck/actions';
+import { fetchCategory, fetchCategoryInsights } from '../Store/Category/duck/actions';
 
 const TitleImage = styled(Box)`
   background: grey;
@@ -29,10 +29,11 @@ class Sector extends Component {
     super(props);
     this.sectorId = props.match.params.id;
     this.props.getCategory(this.sectorId);
+    this.props.getCategoryInsights(this.sectorId);
   }
 
   render () {
-    let { category } = this.props;
+    let { category, insights } = this.props;
     return (
       <Box width={1}>
         <TitleBar titleText={category.name}>
@@ -50,11 +51,11 @@ class Sector extends Component {
         <InlineFlex width={[1,1,1,1/4]} flexDirection='column'>
           <SubTitle>Event Insights</SubTitle>
 
-          <EventInsights></EventInsights>
+          <EventInsights insights={insights}></EventInsights>
 
-          <SubTitle>Latest News</SubTitle>
+          {/* <SubTitle>Latest News</SubTitle> */}
 
-          <EventInsights></EventInsights>
+          {/* <EventInsights></EventInsights> */}
         </InlineFlex>
 
       </Box>
@@ -64,14 +65,18 @@ class Sector extends Component {
 
 const mapStateToProps = state => {
   return {
-      category: state.category.category
+      category: state.category.category,
+      insights: state.category.insights
   }
 };
 
 const mapDispatchToProps = dispatch => ({
   getCategory: (sectorId) => {
       dispatch(fetchCategory(sectorId))
-  }
+  },
+  getCategoryInsights: (sectorId) => {
+    dispatch(fetchCategoryInsights(sectorId))
+}
 })
 
 

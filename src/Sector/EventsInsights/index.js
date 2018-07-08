@@ -11,10 +11,10 @@ const InsightsBox = styled(Flex)`
 
 export default class EventInsights extends Component {
   render () {
+    const { insights } = this.props;
     return (
       <InsightsBox flexDirection='column'>
-        <Insight></Insight>
-        <Insight></Insight>
+        { insights.map((insight) => <Insight insight= {insight} />) }
       </InsightsBox>
     );
   }

@@ -6,13 +6,17 @@ import {
     fetchCategoriesError,
     fetchCategoryStarted,
     fetchCategorySuccess,
-    fetchCategoryError
+    fetchCategoryError,
+    fetchCategoryInsightsStarted,
+    fetchCategoryInsightsSuccess,
+    fetchCategoryInsightsError
 } from './actions';
 
 const defaultState = {
     isFetching: false,
     categories: [],
     category: {},
+    insights: [],
     error: ''
 };
 
@@ -55,6 +59,28 @@ const CategoryReducer = handleActions(
             };
         },
         [fetchCategoryError]: (state, { payload: { error } }) => {
+            return {
+                ...state,
+                isFetching: true,
+                error: error
+            }
+        },
+
+        [fetchCategoryInsightsStarted]: (state) => {
+            return {
+                ...state,
+                isFetching: true,
+                error: ''
+            }
+        },
+        [fetchCategoryInsightsSuccess]: (state, { payload: { insights } }) => {
+            return {
+                ...state,
+                isFetching: false,
+                insights
+            };
+        },
+        [fetchCategoryInsightsError]: (state, { payload: { error } }) => {
             return {
                 ...state,
                 isFetching: true,
