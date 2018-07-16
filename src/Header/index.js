@@ -30,9 +30,9 @@ export default class Header extends Component {
 
           <Flex alignItems='center' ml={40}>
             <SectorsDropdown></SectorsDropdown>
-            <NavItem text={'Events Calendar'}></NavItem>
-            <NavItem text={'About Us'}></NavItem>
-            <NavItem text={'Contact Us'}></NavItem>
+            <NavItem to="/events" text={'Events Calendar'}></NavItem>
+            <NavItem to="/test" text={'About Us'}></NavItem>
+            <NavItem to="/test" text={'Contact Us'}></NavItem>
           </Flex>
         </Flex>
       </HeaderBar>

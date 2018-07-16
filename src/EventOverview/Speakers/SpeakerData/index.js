@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
-import { Flex } from 'grid-styled';
+import { Flex, Box } from 'grid-styled';
 import styled from 'styled-components';
 
 const SpeakerImage = styled.img`
   width: 80px;
   height: 80px;
   margin-right: 1em;
+`;
+
+const SpeakerPosition = styled(Box)`
+  width: 80px;
+  height: 80px;
+  margin: 0.4em 1em 0 0;
+  font-size: 0.8em;
 `;
 
 export default class SpeakerData extends Component {
@@ -20,9 +27,9 @@ export default class SpeakerData extends Component {
           <div>
             {speaker.name}
           </div>
-          <div>
+          <SpeakerPosition>
             {speaker.position}
-          </div>
+          </SpeakerPosition>
         </Flex>
       </Flex>
     );

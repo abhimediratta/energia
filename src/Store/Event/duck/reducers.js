@@ -6,14 +6,18 @@ import {
     fetchEventsError,
     fetchEventDataStarted,
     fetchEventDataSuccess,
-    fetchEventDataError
+    fetchEventDataError,
+    fetchAllEventsStarted,
+    fetchAllEventsSuccess,
+    fetchAllEventsError
 } from './actions';
 
 const defaultState = {
     isFetching: false,
     all: [],
     eventData: {},
-    error: ''
+    error: '',
+    allEvents: []
 };
 
 const EventReducer = handleActions(
@@ -55,6 +59,28 @@ const EventReducer = handleActions(
             };
         },
         [fetchEventDataError]: (state, { payload: { error } }) => {
+            return {
+                ...state,
+                isFetching: true,
+                error: error
+            }
+        },
+
+        [fetchAllEventsStarted]: (state) => {
+            return {
+                ...state,
+                isFetching: true,
+                error: ''
+            }
+        },
+        [fetchAllEventsSuccess]: (state, { payload: { allEvents } }) => {
+            return {
+                ...state,
+                isFetching: false,
+                allEvents: allEvents
+            };
+        },
+        [fetchAllEventsError]: (state, { payload: { error } }) => {
             return {
                 ...state,
                 isFetching: true,

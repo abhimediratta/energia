@@ -13,6 +13,10 @@ export const fetchEventDataStarted = createAction('FETCH_EVENT_STARTED');
 export const fetchEventDataSuccess = createAction('FETCH_EVENT_SUCCESS', eventData => ({ eventData }));
 export const fetchEventDataError = createAction('FETCH_EVENT_ERROR', error => ({ error }));
 
+export const fetchAllEventsStarted = createAction('FETCH_ALL_EVENTS_STARTED');
+export const fetchAllEventsSuccess = createAction('FETCH_ALL_EVENTS_SUCCESS', allEvents => ({ allEvents }));
+export const fetchAllEventsError = createAction('FETCH_ALL_EVENTS_ERROR', error => ({ error }));
+
 export function fetchEvents(categoryId) {
     return dispatch => {
         dispatch(fetchEventsStarted);
@@ -30,6 +34,16 @@ export function fetchEventData(eventSlug) {
             .then(events => events)
             .then(response => dispatch(fetchEventDataSuccess(transformEventData(response.data[0]))))
             .catch(error => dispatch(fetchEventDataError(error)));
+    }
+}
+
+export function fetchAllEvents() {
+    return dispatch => {
+        dispatch(fetchAllEventsStarted);
+        return axios.get(API_URL + 'event?')
+            .then(events => events)
+            .then(response => dispatch(fetchAllEventsSuccess(response.data)))
+            .catch(error => dispatch(fetchAllEventsError(error)));
     }
 }
 

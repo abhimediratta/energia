@@ -26,7 +26,7 @@ const EventBox = styled(Flex)`
 `;
 
 const ImageBox = styled(Box)`
-  flex: 0 0 25%;
+  flex: 0 0 150px;
   background: grey;
 `;
 
@@ -47,7 +47,7 @@ export default class Event extends Component {
           <Box mb={20}>{event.venue}</Box>
           <Link to={`/event/${event.slug}/overview`}>
             <Button size='large'>
-              Hola
+              More Details
             </Button>
           </Link>
         </Flex>

@@ -17,6 +17,7 @@ import Footer from './Footer';
 import Home from './Home';
 import Sector from './Sector';
 import EventOverview from './EventOverview';
+import EventsCalendar from './EventsCalendar';
 
 
 library.add(fas);
@@ -48,6 +49,7 @@ export class App extends Component {
                     <Route exact path="/" component={Home} />
                     <Route path={`/sector/:id`} component={Sector} />
                     <Route path={`/event/:eventSlug`} component={EventOverview} />
+                    <Route path={`/events`} component={EventsCalendar} />
                     <Route component={Home} />
                   </Switch>
                 </Flex>
