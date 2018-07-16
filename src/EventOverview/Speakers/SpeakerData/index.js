@@ -9,7 +9,7 @@ const SpeakerImage = styled.img`
 `;
 
 const SpeakerPosition = styled(Box)`
-  width: 80px;
+  width: 100%;
   height: 80px;
   margin: 0.4em 1em 0 0;
   font-size: 0.8em;

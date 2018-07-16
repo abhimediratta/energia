@@ -54,8 +54,6 @@ class Sector extends Component {
           <EventInsights insights={insights}></EventInsights>
 
           {/* <SubTitle>Latest News</SubTitle> */}
-
-          {/* <EventInsights></EventInsights> */}
         </InlineFlex>
 
       </Box>
