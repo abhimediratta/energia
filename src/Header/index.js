@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import { Flex } from 'grid-styled';
+import { Flex, Box } from 'grid-styled';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import NavItem from './NavItem';
-import SectorsDropdown from './SectorsDropdown';
+import MobileMenuIcon from './MobileMenuIcon';
+import HeaderMenu from './HeaderMenu';
+import HeaderMobileMenu from './HeaderMobileMenu';
+
 
 const HeaderBar = styled(Flex)`
   background: ${props => props.theme.colors.header.background};
   color: ${props => props.theme.colors.header.color};
+  position: relative;
 `;
 
 const HomeLink = styled(Link)`
@@ -22,20 +25,19 @@ const HomeLink = styled(Link)`
 export default class Header extends Component {
   render () {
     return (
-      <HeaderBar pl={30} justify='center'>
-        <Flex width={[1,1,1,3/4]} alignItems='center'>
-          <HomeLink to="/">
-            Header
-          </HomeLink>
+      <Box>
+        <HeaderBar px={[20, 30, 30, 30]} justify='center'>
+          <Flex width={[1,1,1,3/4]} alignItems='center'>
+            <HomeLink to="/">
+              Header
+            </HomeLink>
 
-          <Flex alignItems='center' ml={40}>
-            <SectorsDropdown></SectorsDropdown>
-            <NavItem to="/events" text={'Events Calendar'}></NavItem>
-            <NavItem to="/about" text={'About Us'}></NavItem>
-            <NavItem to="/contact" text={'Contact Us'}></NavItem>
+            <MobileMenuIcon />
+            <HeaderMenu />
           </Flex>
-        </Flex>
-      </HeaderBar>
+        </HeaderBar>
+        <HeaderMobileMenu />
+      </Box>
     )
   }
 }

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const NavLink = styled(Link)`
-  margin-left: 20px;
   cursor: pointer;
   padding: ${ props => props.theme.colors.header.navItem.padding };
   text-decoration: none;
@@ -13,6 +12,9 @@ const NavLink = styled(Link)`
   }
   &:visited {
     text-decoration: none;
+  }
+  @media screen and (min-width: 40em) {
+    margin-left: 20px;
   }
 `;
 

@@ -22,7 +22,7 @@ import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
 
 
-library.add(fas);
+library.add(fas); // adds all font awesome icons
 
 const RootContainer = styled(Flex)`
   flex-direction: column;
@@ -43,7 +43,7 @@ export class App extends Component {
       <Provider store={store}>
         <Router>
           <ThemeProvider theme={theme}>
-            <RootContainer flexDirection="column">
+            <RootContainer>
               <Header></Header>
               <ContentBox flex='1' justify='center'>
                 <Flex width={[1, 1, 1, 3/4]}>
