@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const NavLink = styled(Link)`
   cursor: pointer;
-  padding: ${ props => props.theme.colors.header.navItem.padding };
+  padding: ${ props => props.theme.colors.header.navItem.mobile.padding };
   text-decoration: none;
   color: inherit;
   &:hover {
@@ -15,6 +15,7 @@ const NavLink = styled(Link)`
   }
   @media screen and (min-width: 40em) {
     margin-left: 20px;
+    padding: ${ props => props.theme.colors.header.navItem.padding };
   }
 `;
 

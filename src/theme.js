@@ -6,7 +6,10 @@ const colors = {
     color: '#fff',
     navItem: {
       padding: '20px',
-      hoverColor: '#666'
+      hoverColor: '#666',
+      mobile: {
+        padding: '10px'
+      }
     }
   },
   content: {

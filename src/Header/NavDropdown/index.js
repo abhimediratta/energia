@@ -28,9 +28,12 @@ const Dropdown = styled(Box)`
 
 const NavText = styled(Flex)`
   cursor: pointer;
-  padding: ${ props => props.theme.colors.header.navItem.padding };
+  padding: ${ props => props.theme.colors.header.navItem.mobile.padding };
   &:hover {
     background: ${ props => props.theme.colors.header.navItem.hoverColor }
+  }
+  @media screen and (min-width: 40em) {
+    padding: ${ props => props.theme.colors.header.navItem.padding };
   }
 `;
 
@@ -45,7 +48,7 @@ export default class NavDropdown extends Component {
     const { list } = this.props;
     return (
       <Dropdown>
-        <NavText alignItems='center'>
+        <NavText alignItems={['stretch', 'center']}>
           <FontAwesomeIcon icon="columns"/>
           <TextSpan>{this.props.text}</TextSpan>
           <FontAwesomeIcon icon="angle-down"/>

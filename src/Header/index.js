@@ -23,7 +23,32 @@ const HomeLink = styled(Link)`
 `;
 
 export default class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.toggleMobileMenu= this.toggleMobileMenu.bind(this);
+    this.state = {
+      showMobileMenu: false
+    };
+  }
+
+  toggleMobileMenu(show) {
+    this.setState((prevState) => {
+      return {
+        showMobileMenu: typeof show === undefined ? !prevState.showMobileMenu : show
+      }
+    });
+  }
+
   render () {
+    let { showMobileMenu } = this.state;
+
+    let mobileMenu;
+    if(showMobileMenu) {
+      mobileMenu = <HeaderMobileMenu />;
+    } else {
+      mobileMenu = '';
+    }
+
     return (
       <Box>
         <HeaderBar px={[20, 30, 30, 30]} justify='center'>
@@ -32,11 +57,12 @@ export default class Header extends Component {
               Header
             </HomeLink>
 
-            <MobileMenuIcon />
+            <MobileMenuIcon showMobileMenu={this.toggleMobileMenu} />
             <HeaderMenu />
           </Flex>
         </HeaderBar>
-        <HeaderMobileMenu />
+        
+        {mobileMenu}
       </Box>
     )
   }
