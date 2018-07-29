@@ -46,7 +46,7 @@ export class App extends Component {
             <RootContainer>
               <Header></Header>
               <ContentBox flex='1' justify='center'>
-                <Flex width={[1, 1, 1, 3/4]}>
+                <Flex flexDirection={['column', 'row']} width={[1, 1, 1, 3/4]}>
                   <Switch>
                     <Route exact path="/" component={Home} />
                     <Route path={`/sector/:id`} component={Sector} />

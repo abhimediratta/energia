@@ -14,7 +14,7 @@ export default class EventInsights extends Component {
     const { insights } = this.props;
     return (
       <InsightsBox flexDirection='column'>
-        { insights.map((insight) => <Insight insight= {insight} />) }
+        { insights.map((insight) => <Insight key={insight.id} insight= {insight} />) }
       </InsightsBox>
     );
   }

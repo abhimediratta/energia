@@ -10,7 +10,7 @@ export default class Home extends Component {
   render () {
     return (
       <DocumentTitle title='Energia'>
-        <Flex pt={20}>
+        <Flex pt={[20]} flexDirection={['column-reverse', 'row']}>
           <CategoryItems></CategoryItems>
           <EventsSidebar></EventsSidebar>
         </Flex>
