@@ -25,6 +25,7 @@ const HomeLink = styled(Link)`
 export default class Header extends Component {
   constructor(props) {
     super(props);
+    this.wrapperRef = React.createRef();
     this.toggleMobileMenu= this.toggleMobileMenu.bind(this);
     this.state = {
       showMobileMenu: false
@@ -50,14 +51,14 @@ export default class Header extends Component {
     }
 
     return (
-      <Box>
+      <Box innerRef={this.wrapperRef}>
         <HeaderBar px={[20, 30, 30, 30]} justify='center'>
           <Flex width={[1,1,1,3/4]} alignItems='center'>
             <HomeLink to="/">
               Header
             </HomeLink>
 
-            <MobileMenuIcon showMobileMenu={this.toggleMobileMenu} />
+            <MobileMenuIcon wrapperElement={this.wrapperRef} showMobileMenu={this.toggleMobileMenu} />
             <HeaderMenu />
           </Flex>
         </HeaderBar>

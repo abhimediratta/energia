@@ -11,7 +11,7 @@ export default class Agenda extends Component {
   render () {
     let { eventData } = this.props;
     return (
-      <Flex mt={20}>
+      <Flex flexDirection={['column', 'row']}>
         <Box width={[1,1,1,3/4]}>
           <EventSectionTitle>Agenda</EventSectionTitle>
           <EventSectionContainer dangerouslySetInnerHTML={{ __html: sanitizeHtml(eventData.agenda)}}>

@@ -35,7 +35,7 @@ class EventTabs extends PureComponent {
   render () {
     let { eventSlug } = this.props;
     return (
-      <Flex>
+      <Flex mt={20}>
         <Tab to={`/event/${eventSlug}/overview`}>Overview</Tab>
         <Tab to={`/event/${eventSlug}/agenda`}>Agenda</Tab>
         <Tab to={`/event/${eventSlug}/speakers`}>Speakers</Tab>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { withRouter } from 'react-router';
 
 const Icon = styled.div`
   font-size: 1.5em;
@@ -12,7 +13,7 @@ const Icon = styled.div`
   }
 `;
 
-export default class MobileMenuIcon extends Component {
+class MobileMenuIcon extends Component {
   constructor(props) {
     super(props);
     this.wrapperRef = React.createRef();
@@ -21,14 +22,19 @@ export default class MobileMenuIcon extends Component {
 
   componentDidMount() {
     document.addEventListener('mousedown', this.handleClickOutside);
+    this.unlistenRouteChange = this.props.history.listen(() => {
+      this.props.showMobileMenu(false);
+    });
   }
 
   componentWillUnmount() {
     document.removeEventListener('mousedown', this.handleClickOutside);
+    this.unlistenRouteChange();
   }
 
   handleClickOutside(event) {
-    if (this.wrapperRef && !this.wrapperRef.current.contains(event.target)) {
+    let { wrapperElement } = this.props;
+    if (this.wrapperRef && !this.wrapperRef.current.contains(event.target) && !wrapperElement.current.contains(event.target)) {
       this.props.showMobileMenu(false);
     }
   }
@@ -41,3 +47,5 @@ export default class MobileMenuIcon extends Component {
     );
   }
 }
+
+export default withRouter(MobileMenuIcon);

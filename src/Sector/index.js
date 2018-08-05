@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Box } from 'grid-styled';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import DocumentTitle from 'react-document-title';
 
 import InlineFlex from 'InlineFlex';
 import EventInsights from './EventsInsights';
@@ -35,28 +36,30 @@ class Sector extends Component {
   render () {
     let { category, insights } = this.props;
     return (
-      <Box width={1}>
-        <TitleBar titleText={category.name}>
-        </TitleBar>
-        <TitleImage width={1}>
-        </TitleImage>
+      <DocumentTitle title={category.name}>
+        <Box width={1}>
+          <TitleBar titleText={category.name}>
+          </TitleBar>
+          <TitleImage width={1}>
+          </TitleImage>
 
-        <InlineFlex width={[1,1,1,3/4]} flexDirection='column'>
-          <SubTitle>Upcoming Events</SubTitle>
-          <UpcomingEvents sectorId={this.sectorId}></UpcomingEvents>
+          <InlineFlex width={[1,1,1,3/4]} flexDirection='column'>
+            <SubTitle>Upcoming Events</SubTitle>
+            <UpcomingEvents sectorId={this.sectorId}></UpcomingEvents>
 
-          <SubTitle>Past Events</SubTitle>
-          <PastEvents sectorId={this.sectorId}></PastEvents>
-        </InlineFlex>
-        <InlineFlex width={[1,1,1,1/4]} flexDirection='column'>
-          <SubTitle>Event Insights</SubTitle>
+            <SubTitle>Past Events</SubTitle>
+            <PastEvents sectorId={this.sectorId}></PastEvents>
+          </InlineFlex>
+          <InlineFlex width={[1,1,1,1/4]} flexDirection='column'>
+            <SubTitle>Event Insights</SubTitle>
 
-          <EventInsights insights={insights}></EventInsights>
+            <EventInsights insights={insights}></EventInsights>
 
-          {/* <SubTitle>Latest News</SubTitle> */}
-        </InlineFlex>
+            {/* <SubTitle>Latest News</SubTitle> */}
+          </InlineFlex>
 
-      </Box>
+        </Box>
+      </DocumentTitle>
     )
   }
 }

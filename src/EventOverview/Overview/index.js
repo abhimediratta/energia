@@ -11,7 +11,7 @@ export default class Overview extends Component {
   render () {
     let { eventData } = this.props;
     return (
-      <Flex mt={20}>
+      <Flex flexDirection={['column', 'row']}>
         <Box width={[1,1,1,3/4]}>
           <EventSectionTitle>Overview</EventSectionTitle>
           <EventSectionContainer dangerouslySetInnerHTML={{ __html: sanitizeHtml(eventData.overview)}}>

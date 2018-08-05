@@ -14,9 +14,6 @@ const EventsText = styled.span`
 
 const EventsTitle = styled.h1`
   margin-top: 0;
-  @media screen and (min-width: 40em) {
-    margin-top: auto;
-  }
 `;
 
 export default class EventsSidebar extends Component {

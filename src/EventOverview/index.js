@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Box } from 'grid-styled';
 import { Route } from "react-router-dom";
 import { connect } from 'react-redux';
+import DocumentTitle from 'react-document-title';
 
 import TitleBar from 'TitleBar';
 import EventHeaderBox from './EventHeaderBox';
@@ -21,16 +22,18 @@ class EventOverview extends Component {
   render () {
     let { match, eventData } = this.props;
     return (
-      <Box width={1}>
-        <TitleBar titleText={'More on this'}></TitleBar>
-        <EventHeaderBox eventData={eventData}></EventHeaderBox>
-        <EventTabs eventSlug={eventData.slug}></EventTabs>
-        <Box>
-          <Route exact path={`${match.url}/overview`} render={() => <Overview eventData={eventData} />} />
-          <Route exact path={`${match.url}/agenda`} render={() => <Agenda eventData={eventData} />} />
-          <Route exact path={`${match.url}/speakers`} render={() => <Speakers eventData={eventData} />} />
+      <DocumentTitle title={eventData.name}>
+        <Box width={1}>
+          <TitleBar titleText={'More on this'}></TitleBar>
+          <EventHeaderBox eventData={eventData}></EventHeaderBox>
+          <EventTabs eventSlug={eventData.slug}></EventTabs>
+          <Box>
+            <Route exact path={`${match.url}/overview`} render={() => <Overview eventData={eventData} />} />
+            <Route exact path={`${match.url}/agenda`} render={() => <Agenda eventData={eventData} />} />
+            <Route exact path={`${match.url}/speakers`} render={() => <Speakers eventData={eventData} />} />
+          </Box>
         </Box>
-      </Box>
+      </DocumentTitle>
     )
   }
 }

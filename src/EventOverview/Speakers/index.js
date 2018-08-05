@@ -17,7 +17,7 @@ export default class Speakers extends Component {
   render() {
     let { eventData } = this.props;
     return (
-      <Flex mt={20}>
+      <Flex flexDirection={['column', 'row']}>
         <Box width={[1,1,1,3/4]}>
           <EventSectionTitle>Speakers</EventSectionTitle>
           <EventSectionContainer>

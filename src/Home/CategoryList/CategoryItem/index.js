@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Flex, Box } from 'grid-styled';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 import StyledLink from 'StyledLink';
 
