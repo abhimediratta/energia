@@ -19,4 +19,8 @@ injectGlobal `
     -moz-osx-font-smoothing: grayscale;
     font-family: 'Roboto', sans-serif;
   }
+
+  * {
+    box-sizing: border-box;
+  }
 `

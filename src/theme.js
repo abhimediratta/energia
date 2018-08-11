@@ -55,6 +55,9 @@ const colors = {
     headerBox: {
       background: '#666'
     }
+  },
+  contactUs: {
+    bg: '#cbccce'
   }
 };
 
@@ -77,10 +80,46 @@ const eventSectionColors = {
   }
 };
 
+const formColors = {
+  input: {
+    bg: 'transparent',
+    borderColor: '#5a5a5a',
+    focusBorderColor: '#000'
+  },
+  label: {
+    color: '#5a5a5a'
+  },
+  errorText: {
+    color: 'red'
+  },
+  button: {
+    bg: '#fff',
+    color: '#000',
+    borderColor: '#000',
+    hover: {
+      bg: '#4d4d4d',
+      color: '#fff'
+    },
+    disabled: {
+      bg: '#cbccce',
+      color: 'graytext',
+      borderColor: '#b6b6b6',
+      hover: {
+        bg: '#cbccce',
+        color: 'graytext'
+      }
+    }
+  },
+  allInputs: {
+    fontSize: '1.1rem'
+  }
+};
+
 const theme = {
   colors,
   tabColors,
-  eventSectionColors
+  eventSectionColors,
+  formColors
 };
 
 export default theme;
