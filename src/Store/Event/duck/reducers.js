@@ -39,7 +39,7 @@ const EventReducer = handleActions(
         [fetchEventsError]: (state, { payload: { error } }) => {
             return {
                 ...state,
-                isFetching: true,
+                isFetching: false,
                 error: error
             }
         },
@@ -61,7 +61,7 @@ const EventReducer = handleActions(
         [fetchEventDataError]: (state, { payload: { error } }) => {
             return {
                 ...state,
-                isFetching: true,
+                isFetching: false,
                 error: error
             }
         },
@@ -83,7 +83,7 @@ const EventReducer = handleActions(
         [fetchAllEventsError]: (state, { payload: { error } }) => {
             return {
                 ...state,
-                isFetching: true,
+                isFetching: false,
                 error: error
             }
         },

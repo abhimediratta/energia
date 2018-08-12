@@ -29,7 +29,7 @@ const mapDispatchToProps = dispatch => ({
     getCategories: () => {
         dispatch(fetchCategoriesIfNeeded())
     }
-})
+});
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(CategoryItems);  
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryItems);

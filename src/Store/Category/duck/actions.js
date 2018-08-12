@@ -18,7 +18,7 @@ export const fetchCategoryInsightsError = createAction('FETCH_CATEGORY_INSIGHTS_
 
 function fetchCategories() {
     return dispatch => {
-        dispatch(fetchCategoriesStarted);
+        dispatch(fetchCategoriesStarted());
         return axios.get(API_URL + 'category')
             .then(categories => categories)
             .then(response => dispatch(fetchCategoriesSuccess(response.data)))

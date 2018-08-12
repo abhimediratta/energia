@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from 'react-redux';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import Notifications from 'react-notify-toast';
 
 import theme from './theme';
 
@@ -44,6 +45,7 @@ export class App extends Component {
         <Router>
           <ThemeProvider theme={theme}>
             <RootContainer>
+            <Notifications />
               <Header></Header>
               <ContentBox flex='1' justify='center'>
                 <Flex flexDirection={['column', 'row']} width={[1, 1, 1, 3/4]}>

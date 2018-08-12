@@ -1,17 +1,32 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { notify } from 'react-notify-toast';
 
-import Button from 'Button';
 import InputBox from 'FormElements/InputBox';
 import Input from 'FormElements/Input';
 import TextArea from 'FormElements/TextArea';
 import Label from 'FormElements/Label';
 import FormVertical from 'FormElements/FormVertical';
 import InputError from 'FormElements/InputError';
+import ButtonLoader from '../../Button/ButtonLoader';
+import { sendEnquiry } from '../../Store/Enquiry/duck/actions';
 
 
-export default class ContactForm extends Component {
+const defaultState = {
+  name: '',
+  email: '',
+  message: '',
+  formErrors: {},
+  formValid: false,
+  emailValid: false,
+  nameValid: false,
+  messageValid: false
+};
+
+class ContactForm extends Component {
   constructor(props) {
     super(props);
+    this.nameInputRef = React.createRef();
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.state = {
@@ -19,13 +34,28 @@ export default class ContactForm extends Component {
       email: '',
       message: '',
       formErrors: {},
-      formValid: false
+      formValid: false,
+      emailValid: false,
+      nameValid: false,
+      messageValid: false
     };
+  }
+
+  resetFormState() {
+    this.setState(defaultState);
+    this.nameInputRef.current.focus();
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    alert("hola")
+    this.props.sendEnquiry({
+      senderName: this.state.name,
+      senderEmail: this.state.email,
+      message: this.state.message 
+    }).then(() => {
+      this.resetFormState();
+      notify.show('Thanks for contacting us. We\'ll get back to you.', 'success');
+    });
   }
 
   handleChange (event) {
@@ -76,14 +106,21 @@ export default class ContactForm extends Component {
     });
   }
 
+  componentDidMount() {
+    if (this.nameInputRef) {
+      this.nameInputRef.current.focus();
+    }
+  }
+
   render () {
+    let { isSendingData } = this.props;
     return (
       <FormVertical name="contactForm" onSubmit={this.handleSubmit} validate="novalidate">
         <InputBox>
           <Label>
             Name
           </Label>
-          <Input name="name" value={this.state.name} onChange={this.handleChange}  />
+          <Input autofocus="true" innerRef={this.nameInputRef} name="name" value={this.state.name} onChange={this.handleChange}  />
           <InputError error={this.state.formErrors.name}></InputError>
         </InputBox>
 
@@ -105,12 +142,26 @@ export default class ContactForm extends Component {
         </InputBox>
 
         <InputBox>
-          <Button size="large" disabled={!this.state.formValid}>
-            Send
-          </Button>
+          <ButtonLoader size="large" disabled={!this.state.formValid} showLoader={isSendingData}>
+            Send Message
+          </ButtonLoader>
         </InputBox>
         
       </FormVertical>
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+      isSendingData: state.enquiry.isSendingData
+  }
+};
+
+const mapDispatchToProps = dispatch => ({
+  sendEnquiry: (data) => {
+      return dispatch(sendEnquiry(data))
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
